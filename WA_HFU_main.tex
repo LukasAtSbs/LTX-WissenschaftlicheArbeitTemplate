@@ -1,0 +1,310 @@
+%
+%       LateX template for academic papers following HFU guidlines     
+%
+%       optimised for german language, annotated in English
+%       
+%       Author: Lukas Walchner
+%       Last update: 17.04.2023
+%
+        
+\documentclass[12pt, twoside, openright]{report} % layout for bookbinding
+
+%----------------------------------------------------------------------------------------
+%	SIMPLE PACKAGES
+%----------------------------------------------------------------------------------------
+
+% page layout
+\usepackage[a4paper, left=25mm, right=25mm, top=25mm, bottom=25mm, bindingoffset=15mm]{geometry}
+
+% language packages
+\usepackage[utf8]{inputenc} % allows input of national letters
+\usepackage[T1]{fontenc} % support for specific German characters
+\usepackage[UKenglish, ngerman]{babel} % last languages is the considered the main language
+
+% images
+\usepackage{graphicx}
+\graphicspath{images} % Folder for images in the template folder
+
+% lipsum text
+\usepackage{lipsum}
+
+% math package
+\usepackage{amsmath}
+
+% units package
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% chemical formulars
+\usepackage{chemformula}
+
+% enumerate package of formating enum items
+\usepackage{enumitem}
+
+% reference package
+\usepackage{hyperref}
+
+% useful package to format tables
+\usepackage{rotating}
+
+% inclusion of pdf pages
+\usepackage{pdfpages}
+
+% multi columns
+\usepackage{multicol}
+
+% \FloatBarrier command to prevent floats from appearing after a certain point
+\usepackage[section]{placeins}
+
+% caption package; allows to set a caption witdh
+\usepackage[]{caption}
+
+%----------------------------------------------------------------------------------------
+%	Table formatting
+%----------------------------------------------------------------------------------------
+
+% package that allows to break lines within cells with fixed width columns
+\usepackage{array}
+
+% useful package to format tables
+\usepackage{booktabs}
+
+% package that allows you to set the width of a table
+\usepackage{tabularx}
+
+
+
+%----------------------------------------------------------------------------------------
+%	HEADER & FOOTER
+%----------------------------------------------------------------------------------------
+
+% header
+\usepackage{fancyhdr}
+\setlength{\headheight}{25pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} % only chapter name in chaptermark
+\fancyhf{} % clear header and footer fields
+\fancyhead[LE, RO]{\includegraphics[height=20pt, keepaspectratio]{files/Logo_HFU_42x15mm.jpg}} % page number
+\fancyhead[RE, LO]{\normalfont \bfseries \nouppercase{\leftmark}} % title of chapter
+
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{} % plain is the default page style for titlepage and chapters in report document class
+
+% footer
+\fancyfoot[C]{\normalfont{\nouppercase{\thepage}}} % page number
+
+% blank pages between chapters with no headers
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \begingroup
+    \mbox{}
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\mbox{}\newpage\fi
+    \endgroup\fi\fi}
+\makeatother
+    
+
+%----------------------------------------------------------------------------------------
+%	HEADLINES
+%----------------------------------------------------------------------------------------
+
+% headline format
+\usepackage{titlesec}
+
+% chapter headline
+\titleformat{\chapter} % command
+    {\normalfont \large \bfseries} % format
+    {\thechapter} % label
+    {1em} % horizontal separation between label and title body
+    {} % before-code
+\titlespacing*{\chapter} % command; * for killing indentation after title
+    {0pt} % left
+    {0pt} % vertical space before title
+    {0pt} % separation between title and text
+
+% section headline
+\titleformat{\section} % command
+    {\normalfont \bfseries} % format
+    {\thesection} % label
+    {1em} % horizontal separation between label and title body
+    {} % before-code
+\titlespacing*{\section} % command; * for killing indentation after title
+    {0pt} % left
+    {0pt} % vertical space before title
+    {0pt} % separation between title and text
+
+% subsection headline
+\titleformat{\subsection} % command
+    {\normalfont} % format
+    {\thesubsection} % label
+    {1em} % horizontal separation between label and title body
+    {} % before-code
+\titlespacing*{\subsection} % command; * for killing indentation after title
+    {0pt} % left
+    {0pt} % vertical space before title
+    {0pt} % separation between title and text
+
+
+%----------------------------------------------------------------------------------------
+%	TOC, GLOSSAIRES, BIBLOGRAPHY, INDEX
+%----------------------------------------------------------------------------------------
+
+% customization package for ToC, LoF & LoT
+\usepackage[titles]{tocloft}
+\setlength{\cftbeforechapskip}{3pt} % linespacing for ToC, LoF & LoT
+
+% glossaries
+\usepackage[nopostdot, acronym, toc]{glossaries}
+\makenoidxglossaries
+\loadglsentries{files/glossary.tex} % loading definition from file glossary.tex
+\loadglsentries{files/acronyms.tex} % loading definition from file acronyms.tex
+
+% index package
+\usepackage{imakeidx}
+\makeindex[columns=2, title=Stichwortverzeichnis]
+
+% bibliography
+\usepackage[style=ieee]{biblatex}
+\addbibresource{files/references.bib} % bibliography file
+\renewcommand*{\UrlFont}{\rmfamily} % url in current font
+\DefineBibliographyStrings{ngerman}{ % redefine the command urlseen
+  urlseen = {abgerufen am},
+}
+
+
+%----------------------------------------------------------------------------------------
+%	TEXT STRUCTURE
+%----------------------------------------------------------------------------------------
+
+% definition of front-, main-, backmatter for documentclass report
+\makeatletter
+\newcommand\frontmatter{%
+    \cleardoublepage
+    \pagenumbering{Roman}}
+    
+\newcommand\mainmatter{%
+    \cleardoublepage
+    \pagenumbering{arabic}}
+    
+\newcommand\backmatter{%
+    \if@openright
+    \cleardoublepage
+    \else
+    \clearpage
+    \fi}
+\makeatother
+
+% paragraph format
+\setlength{\parindent}{0pt} % indentation
+\setlength{\parskip}{1em} % paragraph separation
+
+% convenient line spacing package, that excludes captions, footnotes...
+\usepackage{setspace}
+
+% numbering package
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter} % no numbering reset of images with a new chapter
+\counterwithout{table}{chapter} % no numbering reset of tables with a new chapter
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\onehalfspacing % line spacing 1.5
+
+\setlength{\abovedisplayskip}{0pt} % Space above equations
+\setlength{\belowdisplayskip}{0pt} % Spaxe below equations
+
+% titlepage
+\input{files/HFU_titlepage.tex}
+
+\frontmatter
+
+% Abstract in deutsch (mandatory)
+\chapter*{Abstract (deutsch)}
+\markboth{Abstract (deutsch)}{} % Abstract to chaptermark
+\addcontentsline{toc}{chapter}{Abstract (deutsch)} % Abstract to ToC
+\input{chapters/abstract_deutsch.tex}
+
+% Abstract in englisch (mandatory)
+\chapter*{Abstract (english)}
+\markboth{Abstract (english)}{} % Abstract to chaptermark
+\addcontentsline{toc}{chapter}{Abstract (english)} % Abstract to ToC
+\input{chapters/abstract_englisch.tex}
+
+% Eidesstattliche Erklärung (mandatory)
+\chapter*{Eidesstattliche Erklärung}
+\markboth{Eidesstattliche Erklärung}{} % Eidesstattliche Erklärung to chaptermark
+\addcontentsline{toc}{chapter}{Eidesstattliche Erklärung} % Eidesstattliche Erklärung to ToC
+\input{files/declaration}
+
+% Sperrvermerk (optional)
+\chapter*{Sperrvermerk}
+\markboth{Sperrvermerk}{} % Sperrvermerk to chaptermark
+\addcontentsline{toc}{chapter}{Sperrvermerk} % Sperrvermerk to ToC
+\input{files/confidentialclause}
+
+% Introduction (optional)
+\chapter*{Vorwort}
+\markboth{Vorwort}{} % Introduction to chaptermark
+\addcontentsline{toc}{chapter}{Vorwort} % Introduction to ToC
+\input{chapters/introduction}
+
+% Inhaltsverzeichnis (mandatory)
+\tableofcontents    
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis} % chapter Inhaltsverzeichnis zu ToC
+
+% Abbildungsverzeichnis (mandatory)
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis} % Abbildungsverzeichnis zu ToC
+
+% Tabellenverzeichnis (mandatory)
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis} % Tabellenverzeichnis zu ToC
+
+% Glossary (optional)
+\printnoidxglossary % type=main
+
+% List of abbreviations (optional)
+\printnoidxglossary[type=\acronymtype] % type=acronym
+
+
+\mainmatter
+
+%----------------------------------------------------------------------------------------
+%	CONTENT
+%----------------------------------------------------------------------------------------
+
+% Chapter 1
+\input{chapters/example.tex}
+
+% ...
+
+%----------------------------------------------------------------------------------------
+%	BIBLOGRAPHY, INDEX, APPENDIX
+%----------------------------------------------------------------------------------------
+
+
+% Bibliography (mandatory)
+\begingroup
+\singlespacing % 1.0 linespacing within one entry
+\setlength\bibitemsep{6pt} % 1.5 linespacing between entries
+\printbibliography[title=Literaturverzeichnis]
+\addcontentsline{toc}{chapter}{Literaturverzeichnis} % Biblography to ToC
+\endgroup
+
+% Index (optional)
+\printindex
+
+% Anhang (optional)
+\chapter*{Anhang A}
+\markboth{Anhang A}{} % Anhang A to chaptermark
+\addcontentsline{toc}{chapter}{Anhang A} % Anhang A to ToC
+
+
+\end{document}
+

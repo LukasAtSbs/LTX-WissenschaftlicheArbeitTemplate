@@ -1,0 +1,24 @@
+%   glossary with the glossary-package
+%
+%   Definition: \newglossaryentry{<label>}{
+%                      name={<name>},
+%                      description={<description>},
+%                      <other options>
+%                }         
+%
+%   Use in text: \gls(<label>)
+%
+% Best practice: To differentiate between glossary and acronym items end all glossary-labels with an extra <_g>
+
+% example
+\newglossaryentry{sample_g}{
+    name=sample,
+    description={an example}
+}
+
+% Cross reference
+\newglossaryentry{cross_g}{
+    name={Cross Reference},
+    description={A cross reference to the list of acronyms}
+}
+

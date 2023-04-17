@@ -1,0 +1,27 @@
+%   list of acronyms with the glossaries package
+%
+%   Definition: \newacronym[<options>]{<lable>}{<short>}{<long>}
+%
+%   Use in text: \gls(<lable>)
+%   -> Appearance first use: <long> (<short>)
+%   -> Appearance second use: <short>
+%
+%   For cross references with glossary use: 
+%       \newglossaryentry{<lable>}{type=\acronymtype,
+%           name={<short>},
+%           description={},
+%           first={<long> (<short>)\glsadd{<glossay-lable>}},
+%           see=[Glossary:]{<glossary-lable>}}
+%
+%   -> Best practice: To differentiate between glossary and acronym items end all glossary-labels with <_g>
+
+
+% regular acronym example
+\newacronym{HFU}{HFU}{Hochschule Furtwangen University}
+
+% Cross reference example
+\newglossaryentry{cross}{type=\acronymtype,
+    name={CR},
+    description={Cross Reference},
+    first={Cross Reference (CR)\glsadd{cross_g}},
+    see=[Glossary:]{cross_g}}

@@ -1,0 +1,18 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{Abstract (deutsch)}{I}{chapter*.2}%
+\contentsline {chapter}{Abstract (english)}{III}{chapter*.3}%
+\babel@toc {UKenglish}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{Eidesstattliche Erklärung}{V}{chapter*.4}%
+\contentsline {chapter}{Sperrvermerk}{VII}{chapter*.5}%
+\contentsline {chapter}{Vorwort}{IX}{chapter*.6}%
+\contentsline {chapter}{Inhaltsverzeichnis}{XI}{chapter*.7}%
+\contentsline {chapter}{Abbildungsverzeichnis}{XIII}{chapter*.8}%
+\contentsline {chapter}{Tabellenverzeichnis}{XV}{chapter*.9}%
+\contentsline {chapter}{Glossar}{XVII}{section*.10}%
+\contentsline {chapter}{Akronyme}{XIX}{section*.12}%
+\contentsline {chapter}{\numberline {1}Main chapter heading level 1}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Section heading level 2}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Section heading level 3}{1}{subsection.1.1.1}%
+\contentsline {chapter}{Literaturverzeichnis}{5}{chapter*.19}%
+\contentsline {chapter}{Anhang A}{9}{chapter*.21}%

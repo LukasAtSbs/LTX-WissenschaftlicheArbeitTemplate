@@ -1,0 +1,115 @@
+% chapter1 example
+
+\chapter{Main chapter heading level 1}
+
+\section{Section heading level 2}
+
+\subsection{Section heading level 3}
+
+Referenz auf Glossar: \gls{cross} 
+
+Referenz auf Glossar: \gls{HFU}
+
+Element1\index{Element1} und Element2\index{Element2} erscheinen im Stichwortverzeichnis.
+
+\grqq Das ist ein direktes Zitat \parencite[S. 52-54]{example}\glqq{} und das ist ein indirektes Zitat \parencite{examplewebsite}.
+
+Mathematik-Formel mit Einheiten:
+
+\begin{center}
+    \vspace*{-12pt}
+    \[ b \geq \frac{2 \cdot T_{eq} \cdot S}{\pi \cdot d^2 \cdot \tau_{KW}} = \frac{2 \cdot 1,2 \cdot \SI[]{1}[]{\N\m} \cdot 2,5}{\pi \cdot \SI[]{6}[]{\mm}^2 \cdot 0,4 \cdot \SI[]{20}[]{\N\per\mm\squared}} \approx \SI[]{6,63}[]{\mm} \]
+\end{center}
+
+Abbildung \ref{fig:example1} zeigt die Standarddarstellung eines Bildes.
+
+% image
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/example.png}
+    \caption{Beschreibung Bild 1}
+    \label{fig:example1}
+\end{figure}
+
+Abbildung \ref{fig:example2} und \ref{fig:example3} zeigen zwei Bilder, die nebeneinander dargestellt werden.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}[t]{.5\textwidth}
+        \centering
+        \captionsetup{width=.8\linewidth}
+        \includegraphics[width=0.8\linewidth]{images/example.png}
+        \caption{Beschreibung Bild 2}
+        \label{fig:example2}
+    \end{minipage}%
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+        \captionsetup{width=.8\linewidth}
+        \includegraphics[width=0.8\linewidth]{images/example.png}
+        \caption{Beschreibung Bild 3}
+        \label{fig:example3}
+    \end{minipage}
+\end{figure}
+
+\FloatBarrier
+
+Abbildung \ref{fig:example4} zeigt ein Bild im Landschaftsformat.
+
+\begin{sidewaysfigure}[h] 
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/example.png}
+    \caption{Beschreibung Bild 4}
+    \label{fig:example4}
+\end{sidewaysfigure}
+
+\FloatBarrier
+
+Aufzählung:
+
+\begin{itemize}
+    \vspace*{-12pt}
+    \item Element 1
+    \item Element 2
+    \item Element 3
+    \vspace*{-12pt}
+\end{itemize}
+
+\FloatBarrier
+
+Tabelle \ref{tab:Tabelle} zeigt eine Tabelle mit Zeilenumbruch.
+
+\begin{table}[h]
+    \renewcommand\arraystretch{1.5} % increase or reduce horizonatl space between rows
+    % \renewcommand{\tabcolsep}{3pt} % reduce vertical space between columns
+    \centering
+    \caption{Beschreibung Tabelle 1} % To place a caption above a table
+    \begin{tabular}{l*{2}{>{\raggedright\arraybackslash}p{0.3\linewidth}}} % star notation: *{number of columns}{column-type definition}
+    \toprule % Thick line above table
+    \textbf{Heading 1} & \textbf{Heading 2} & \textbf{Heading 3} \\
+    \midrule
+    Some text & Some longer text & This text is even longer and will force a linebreak \\
+    \bottomrule % Thick line below table
+    \label{tab:Tabelle}
+    \end{tabular}
+\end{table}%
+
+\FloatBarrier
+
+Tabelle \ref{tab:Tabelle2} zeigt eine weitere Tabelle mit Zeilenumbruch.
+
+\begin{table}[h]	
+    \renewcommand\arraystretch{1.5} % extra space between rows
+    \centering
+    \caption{Beschreibung Tabelle 2}
+    \begin{tabular}{>{\raggedright\arraybackslash}p{0.3\linewidth}>{\raggedright\arraybackslash}p{0.6\linewidth}}
+    \toprule
+    \textbf{Heading 1} & \textbf{Heading 2} \\
+    \midrule
+    Some text &  This text has to be even longer in order to create a linebreak \\
+    \bottomrule
+    \label{tab:Tabelle2}
+    \end{tabular}
+    \vspace{-10mm} % Reduce space underneath table
+\end{table}%
+
+
